@@ -1,5 +1,5 @@
 
-##Table of Contents
+Table of Contents
 ---
 
 1 Features
@@ -46,6 +46,7 @@
 
 
 1. Features
+---
 
 Spawn persistent, talkable NPCs (shopkeeper-conversationalist prefab).
 
@@ -69,6 +70,7 @@ Auto-closes the dialog if the player moves too far (configurable).
 
 
 2. Install
+---
 
 Place TalkingNpc.cs in oxide/plugins/.
 
@@ -90,6 +92,7 @@ MarkerManager – map marker support.
 
 
 3. Permissions
+---
 
 Grant your admins the manage permission (configurable):
 
@@ -102,6 +105,7 @@ Default permission: talkingnpc.admin (configurable; see Config Options).
 
 
 4. Quick Start
+---
 
 Create a conversation file at
 oxide/data/TalkingNpc/Conversations/village_shop:
@@ -154,6 +158,7 @@ Remove later:
 
 
 5. Admin Commands
+---
 
 Requires the admin permission.
 
@@ -180,6 +185,7 @@ Remove NPC
 
 
 6. Data & File Layout
+---
 
 The plugin stores data under oxide/data/TalkingNpc/:
 
@@ -199,6 +205,7 @@ Conversation & vending filenames don’t need an extension. The plugin reads/wri
 
 
 7. Conversation Files
+---
 
 A conversation file is a JSON object keyed by Message IDs (uint, e.g., "0", "1").
 Each message has a Message string, optional Message Display Time … (used when there are no responses), and an array of Responses.
@@ -207,15 +214,14 @@ Each message has a Message string, optional Message Display Time … (used when 
 
 
 8. Message & Response Schema
-Message
+---
+
 
 Message (string) — text shown to the player.
 
 Message Display Time (seconds) - Only used if there are no responses) (float, optional) — auto-closes after X seconds if Responses is empty.
 
 Responses (List<Response>)
-
-Response
 
 Message (string) — button text.
 
@@ -245,6 +251,7 @@ Server Wide Cooldown (bool, optional) — if true, cooldown applies globally for
 
 
 9. Command Placeholders
+---
 
 These tokens will be replaced in Player Commands and Server Commands:
 
@@ -258,6 +265,7 @@ $npcName → current conversation’s NPC name (conversation file name)
 
 
 10. GiveItem helper
+---
 
 You can directly grant items from a response command using:
 
@@ -272,6 +280,7 @@ Works in both Player Commands and Server Commands.
 
 
 11. Currency & Pricing
+---
 
 If a response has Price > 0, the plugin checks Currency.Item ID:
 
@@ -287,6 +296,7 @@ If the player can’t afford it, the response jumps to Insufficient Funds Messag
 
 
 12. Cooldowns
+---
 
 Per-player cooldown: set Cooldown to N seconds.
 
@@ -297,6 +307,7 @@ The button shows a timer overlay and is disabled until the cooldown expires.
 
 
 13. Optional Integrations
+---
 I find Timed Permissions to be useful.
 Ive also linked Talking_NPCs with Epic Loot successfully.
 
@@ -304,6 +315,7 @@ Ive also linked Talking_NPCs with Epic Loot successfully.
 
 
 14. Invisible Vending (CustomVendingSetup)
+---
 
 Add vending configs under oxide/data/TalkingNpc/VendingMachines/<file>.
 
@@ -322,6 +334,7 @@ If a listed vending file exists but CustomVendingSetup isn’t installed, vendin
 
 
 15. Map Markers (MarkerManager)
+---
 
 Per-NPC marker settings:
 
@@ -340,6 +353,7 @@ When enabled, the plugin creates/removes a persistent map marker for the NPC.
 
 
 16. Kits
+---
 
 If you set "Kit": "<kitname>" on an NPC, the plugin strips the NPC’s inventory and applies the kit (requires Kits).
 
@@ -347,6 +361,7 @@ If you set "Kit": "<kitname>" on an NPC, the plugin strips the NPC’s inventory
 
 
 17. Console Test Command
+---
 
 Preview conversations without spawning an NPC:
 
@@ -361,6 +376,7 @@ talkingnpctest <playerID> <ConversationFile> <NpcDisplayName>
 
 
 18. Config Options
+---
 
 oxide/config/TalkingNpc.json:
 
@@ -410,6 +426,7 @@ NPCs are given a stable userID and auto-respawn on server boot.
 
 
 19. Troubleshooting
+---
 
 “You can not use this command” → Your account lacks the admin permission; grant talkingnpc.admin (or whatever you set in config).
 
@@ -425,6 +442,7 @@ Buttons show a timer / greyed out → A per-player or global cooldown is active.
 
 
 20. Developer Hooks
+---
 
 OnTalkingNpcCommand(BasePlayer player, string[] args)
 Called when a command string containing talking_npc is executed from a response.
