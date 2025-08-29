@@ -1,4 +1,5 @@
 Setting Up NPCs &  Quest Lines
+---
 
 Talking NPC Vendors allows you to create permissions unlockable through their conversation with your players.
 
@@ -7,12 +8,14 @@ To get started you will want at least two NPCs already made with their own Conve
 It's easiest to do this both in game as admin and with access to server files.
 
 1️⃣ Creating the NPCs
+---
 Stand where you want the NPC to be, including the way you want them to face
 
 type /talking_npc add NameThem - Using the name you want them to be associated with. You will be able to change all this in the data file.
 
 
 2️⃣  Creating their Conversation Files
+---
 
 In Data/TalkingNPC open TalkerSpawns.json
 
@@ -36,6 +39,7 @@ Create the conversation file for all the NPCs in your Quest Line
 
 
 3️⃣ Starting the Permission Chain
+---
 
 In Data/TalkingNPC/Conversations, begin with the NPC that will REQUIRE a permission to speak with.
 
@@ -67,6 +71,7 @@ This would be Doc Browns in our Example
 
 
 4️⃣ Moving up the Chain
+---
 
 For the NPC that will GRANT the permission:
 
@@ -100,6 +105,7 @@ Save and Reload and your NPCs are now linked!
 
 
 5️⃣ If you are using multiple NPCS
+---
 
 In the same file you would then find the point you would want to require speaking to the next NPC towards the initial before unlocking
 
