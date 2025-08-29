@@ -22,7 +22,9 @@ Create the conversation file for all the NPCs in your Quest Line
 3️⃣ Starting the Permission Chain
 In Data/TalkingNPC/Conversations, begin with the NPC that will REQUIRE a permission to speak with.
 We will use Jax as our Example. Jax requires you to have talked to Doc Brown first.
- If you are doing more than two NPCs, Its easiest to start with the LAST one in the chain and work to the initial NPC who does not require anything to speak with. 
+ If you are doing more than two NPCs, Its easiest to start with the LAST one in the chain and work to the initial NPC who does not require anything to speak with,
+(Else when you try to load the NPC you are working on, it will say the Permission doesnt exist.
+Which you could just ingore if youd rather build the quest logically lol.) 
 Open the Last NPC in the chains Conversation file.
 For the Example, this would be Jax's
 
