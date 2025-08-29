@@ -42,6 +42,7 @@ Table of Contents
 
 
 
+
 1. Features
 
 Spawn persistent, talkable NPCs (shopkeeper-conversationalist prefab).
@@ -62,6 +63,9 @@ Optional: open invisible vending UIs, apply kits, show map markers.
 
 Auto-closes the dialog if the player moves too far (configurable).
 
+
+
+
 2. Install
 
 Place TalkingNpc.cs in oxide/plugins/.
@@ -80,6 +84,9 @@ Kits – outfit NPC inventories.
 
 MarkerManager – map marker support.
 
+
+
+
 3. Permissions
 
 Grant your admins the manage permission (configurable):
@@ -88,6 +95,9 @@ oxide.grant group admin talkingnpc.admin
 
 
 Default permission: talkingnpc.admin (configurable; see Config Options).
+
+
+
 
 4. Quick Start
 
@@ -138,6 +148,9 @@ Remove later:
 
 /talking_npc remove Bob
 
+
+
+
 5. Admin Commands
 
 Requires the admin permission.
@@ -161,6 +174,9 @@ Remove NPC
 
 /talking_npc remove <Name>
 
+
+
+
 6. Data & File Layout
 
 The plugin stores data under oxide/data/TalkingNpc/:
@@ -177,10 +193,16 @@ VendingMachines/<filename> — invisible vending setups (if using CustomVendingS
 
 Conversation & vending filenames don’t need an extension. The plugin reads/writes JSON internally.
 
+
+
+
 7. Conversation Files
 
 A conversation file is a JSON object keyed by Message IDs (uint, e.g., "0", "1").
 Each message has a Message string, optional Message Display Time … (used when there are no responses), and an array of Responses.
+
+
+
 
 8. Message & Response Schema
 Message
@@ -217,6 +239,9 @@ Cooldown (int seconds, optional) — per-player cooldown after clicking.
 
 Server Wide Cooldown (bool, optional) — if true, cooldown applies globally for everyone.
 
+
+
+
 9. Command Placeholders
 
 These tokens will be replaced in Player Commands and Server Commands:
@@ -226,6 +251,9 @@ playerID or $userID → player SteamID
 $displayName → player name
 
 $npcName → current conversation’s NPC name (conversation file name)
+
+
+
 
 10. GiveItem helper
 
@@ -237,6 +265,9 @@ GiveItem <itemId> <amount> <skinId> <custom name...>
 The custom name is everything after the first 3 numbers.
 
 Works in both Player Commands and Server Commands.
+
+
+
 
 11. Currency & Pricing
 
@@ -250,6 +281,9 @@ Any other item ID → looks for that item (and skin) in the player’s inventory
 
 If the player can’t afford it, the response jumps to Insufficient Funds Message (if set), otherwise the dialog closes.
 
+
+
+
 12. Cooldowns
 
 Per-player cooldown: set Cooldown to N seconds.
@@ -257,7 +291,16 @@ Per-player cooldown: set Cooldown to N seconds.
 Global cooldown: also set Server Wide Cooldown: true.
 The button shows a timer overlay and is disabled until the cooldown expires.
 
+
+
+
 13. Optional Integrations
+I find Timed Permissions to be useful at times.
+Ive also linked Talking_NPCs with Epic Loot successfully.
+
+
+
+
 14. Invisible Vending (CustomVendingSetup)
 
 Add vending configs under oxide/data/TalkingNpc/VendingMachines/<file>.
@@ -272,6 +315,9 @@ OpenVending <VendingFile>
 This opens the invisible vending machine that matches <VendingFile>.
 
 If a listed vending file exists but CustomVendingSetup isn’t installed, vending for that NPC is disabled and a warning is logged.
+
+
+
 
 15. Map Markers (MarkerManager)
 
@@ -288,9 +334,15 @@ Per-NPC marker settings:
 
 When enabled, the plugin creates/removes a persistent map marker for the NPC.
 
+
+
+
 16. Kits
 
 If you set "Kit": "<kitname>" on an NPC, the plugin strips the NPC’s inventory and applies the kit (requires Kits).
+
+
+
 
 17. Console Test Command
 
@@ -302,6 +354,9 @@ talkingnpctest <ConversationFile> <NpcDisplayName>
 If you run it from the server console, you can optionally pass a player ID first to open it for someone else:
 
 talkingnpctest <playerID> <ConversationFile> <NpcDisplayName>
+
+
+
 
 18. Config Options
 
@@ -349,6 +404,9 @@ Each saved NPC (in TalkerSpawns.json) can include:
 Prefab used: assets/prefabs/npc/bandit/shopkeepers/bandit_conversationalist.prefab
 NPCs are given a stable userID and auto-respawn on server boot.
 
+
+
+
 19. Troubleshooting
 
 “You can not use this command” → Your account lacks the admin permission; grant talkingnpc.admin (or whatever you set in config).
@@ -360,6 +418,9 @@ Vending doesn’t open → Ensure CustomVendingSetup is installed, the vending f
 Buttons show a timer / greyed out → A per-player or global cooldown is active.
 
 “Invalid conversation file …” → Ensure the filename exists under data/TalkingNpc/Conversations/ and loads as valid JSON.
+
+
+
 
 20. Developer Hooks
 
