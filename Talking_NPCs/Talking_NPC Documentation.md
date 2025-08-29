@@ -45,7 +45,7 @@ Table of Contents
 
 
 
-1. Features
+Features
 ---
 
 Spawn persistent, talkable NPCs (shopkeeper-conversationalist prefab).
